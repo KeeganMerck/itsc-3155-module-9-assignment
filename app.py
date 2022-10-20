@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template
+from flask import Flask, redirect, render_template, request
 
 from src.repositories.movie_repository import get_movie_repository
 
@@ -23,11 +23,12 @@ def create_movies_form():
     return render_template('create_movies_form.html', create_rating_active=True)
 
 
-@app.post('/movies')
+@app.post('/movies/new')
 def create_movie():
-    movie-title = request.form.git('title', type=str)
-    movie-director = request.form.git('director', type=str)
-    movie-rating = request.form.git('rating', type=int)
+    movie_title = request.form.get('movie-name', type=str)
+    movie_director = request.form.get('movie-director', type=str)
+    movie_rating = request.form.get('movie-rating', type=int)
+    movie_repository.create_movie(movie_title, movie_director, movie_rating)
     return redirect('/movies')
 
 
