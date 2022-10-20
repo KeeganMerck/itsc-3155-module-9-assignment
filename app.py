@@ -25,8 +25,9 @@ def create_movies_form():
 
 @app.post('/movies')
 def create_movie():
-    # TODO: Feature 2
-    # After creating the movie in the database, we redirect to the list all movies page
+    movie-title = request.form.git('title', type=str)
+    movie-director = request.form.git('director', type=str)
+    movie-rating = request.form.git('rating', type=int)
     return redirect('/movies')
 
 
