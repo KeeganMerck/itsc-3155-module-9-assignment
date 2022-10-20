@@ -6,4 +6,24 @@
 <h1 class="mb-5">All Movies</h1>
 <p class="mb-3">See our list of movie ratings below</p>
 <!-- TODO: Feature 1 -->
+
+<table class="table">
+    <tr>
+        <th scope="col">Movie</th>
+        <th scope="col">Director</th>
+        <th scope="col">Rating</th>
+    </tr>
+    {% if not movies %}
+        <tr><td>No Movies to Display</td><td></td><td></td></tr>
+    {% endif %}
+    {% for i in movies: %}
+        <tr>
+            <td>{{i.title}}</td>
+            <td>{{i.director}}</td>
+            <td>{{i.rating}}</td>
+        </tr>
+    {% endfor %}
+
+</table>
+
 {% endblock %}
