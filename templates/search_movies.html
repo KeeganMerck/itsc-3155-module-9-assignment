@@ -6,13 +6,28 @@
 <h1 class="mb-5">Search Movie Ratings</h1>
 <p class="mb-3">Search for a movie rating below</p>
 <!-- TODO: Feature 3 -->
-<div class="input-group">
-    <div class="form-outline">
-      <input id="search-focus" type="search" id="form1" class="form-control" />
-      <label class="form-label" for="form1">Search</label>
+<nav class="navbar bg-light">
+    <div class="container-fluid">
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="movie-title" name="movie-title">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
     </div>
-    <button type="button" class="btn btn-primary">
-      <i class="fas fa-search"></i>
-    </button>
-</div>
+</nav>
+{% if movie %}
+<table class="table">
+  <tr>
+      <th scope="col">Movie</th>
+      <th scope="col">Director</th>
+      <th scope="col">Rating</th>
+  </tr>
+      <tr>
+          <td>{{movie.title}}</td>
+          <td>{{movie.director}}</td>
+          <td>{{movie.rating}}</td>
+      </tr>
+</table>  
+{% elif entered %}
+<tr><td>Movie not found!</td><td></td><td></td></tr>
+{% endif %}
 {% endblock %}
