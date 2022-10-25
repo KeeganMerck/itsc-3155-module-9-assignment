@@ -33,6 +33,12 @@ def create_movie():
 
 
 @app.get('/movies/search')
-def search_movies():
+def search_movies():    
     # TODO: Feature 3
-    return render_template('search_movies.html', search_active=True)
+    movie_title = request.args.get('movie-title', type=str)
+    if movie_title: 
+        yes = True
+    else:
+        yes = False
+    return render_template('search_movies.html', search_active=True, movie = movie_repository.get_movie_by_title(movie_title), entered = yes)
+
